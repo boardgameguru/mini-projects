@@ -1,4 +1,5 @@
 require_relative "rover"
+require_relative "platform"
 
 #In order to solve this problem, we are going to need a few things. First, we will need to be able to create rovers with various states, so we need to make a class and create one.
 
@@ -32,7 +33,7 @@ rover1 = Rover.new(rover1_array[0].to_i, rover1_array[1].to_i, rover1_array[2])
 
 direction_array = first_directions.upcase.split('')
 
-direction_array.each { |action| rover1.controller(action) }
+direction_array.each { |action| rover1.controller(action, platform) }
 #Now we do it again for the second command of insructions.
 
 puts "Please place your second rover onto your platform. Please give corordinates and direction. Example: (0 0 N)"
@@ -49,7 +50,7 @@ rover2 = Rover.new(rover2_array[0].to_i, rover2_array[1].to_i, rover2_array[2])
 
 direction_array2 = second_directions.upcase.split('')
 
-direction_array2.each { |action| rover2.controller(action) }
+direction_array2.each { |action| rover2.controller(action, platform) }
 
 #Then, we give the results back.
 
