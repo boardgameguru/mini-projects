@@ -33,14 +33,20 @@ class Rover
     when "E"
       if platform.safety_check(self)
         current_rover.xaxis += 1
+      else
+        "Whew, that was close"
       end
     when "S"
       if platform.safety_check(self)
         current_rover.yaxis -= 1
+      else
+        "Whew, that was close"
       end
     when "W"
       if platform.safety_check(self)
         current_rover.xaxis -= 1
+      else
+        "Whew, that was close"
       end
     end
   end
