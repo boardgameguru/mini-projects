@@ -10,11 +10,13 @@ platform_sizes = gets.chomp
 
 # #Once we have this data, we can save our plateau info.
 
-platform = platform_sizes.split('')
+platform_array = platform_sizes.split('')
+
+platform = Platform.new(platform_array[0].to_i, platform_array[1].to_i)
 
 # Next, we are supposed to take two requests, one for a new rover and another for its movements.
 
-puts "Please place your first rover onto your plateau. Please give corordinates and direction. Example: (0 0 N)"
+puts "Please place your first rover onto your platform. Please give corordinates and direction. Example: (0 0 N)"
 
 first_rover = gets.chomp
 
@@ -33,7 +35,7 @@ direction_array = first_directions.upcase.split('')
 direction_array.each { |action| rover1.controller(action) }
 #Now we do it again for the second command of insructions.
 
-puts "Please place your second rover onto your plateau. Please give corordinates and direction. Example: (0 0 N)"
+puts "Please place your second rover onto your platform. Please give corordinates and direction. Example: (0 0 N)"
 
 second_rover = gets.chomp
 
