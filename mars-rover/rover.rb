@@ -7,11 +7,11 @@ class Rover
     @direction = direction.to_s
   end
 #I'll build one method to act as the controller, calling on other methods to do the data manipulation.
-  def controller(action)
+  def controller(action ,platform)
 
     case action
     when "M"
-      move
+      move(platform)
     when "L"
       turn_left
     when "R"
@@ -21,16 +21,27 @@ class Rover
 
     #We then need the methods to fufill the three actions of the controller.
 
-  def move
-    case self.direction
+  def move(platform)
+    current_rover = self
+    case current_rover.direction
     when "N"
-      self.yaxis += 1
+      if platform.safety_check(self)
+        current_rover.yaxis += 1
+      else
+        "Whew, that was close"
+      end
     when "E"
-      self.xaxis += 1
+      if platform.safety_check(self)
+        current_rover.xaxis += 1
+      end
     when "S"
-      self.yaxis -= 1
+      if platform.safety_check(self)
+        current_rover.yaxis -= 1
+      end
     when "W"
-      self.xaxis -= 1
+      if platform.safety_check(self)
+        current_rover.xaxis -= 1
+      end
     end
   end
 
