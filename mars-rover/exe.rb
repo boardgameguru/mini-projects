@@ -31,3 +31,25 @@ rover1 = Rover.new(rover1_array[0].to_i, rover1_array[1].to_i, rover1_array[2])
 direction_array = first_directions.upcase.split('')
 
 direction_array.each { |action| rover1.controller(action) }
+#Now we do it again for the second command of insructions.
+
+puts "Please place your second rover onto your plateau. Please give corordinates and direction. Example: (0 0 N)"
+
+second_rover = gets.chomp
+
+puts "Please provide your directions for the second rover. M = move forward, L = turn left, R = turn right."
+
+second_directions = gets.chomp
+
+rover2_array = second_rover.split(' ')
+
+rover2 = Rover.new(rover2_array[0].to_i, rover2_array[1].to_i, rover2_array[2])
+
+direction_array2 = second_directions.upcase.split('')
+
+direction_array2.each { |action| rover2.controller(action) }
+
+#Then, we give the results back.
+
+puts "#{rover1.xaxis} #{rover1.yaxis} #{rover1.direction}"
+puts "#{rover2.xaxis} #{rover2.yaxis} #{rover2.direction}"
